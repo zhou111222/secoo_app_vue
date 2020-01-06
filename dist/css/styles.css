@@ -1,0 +1,231 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #212529; }
+
+.newUserTopBarWrapper {
+  display: none; }
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .ua-box .rule-box {
+    padding-bottom: 30px !important; } }
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+  .ua-box .rule-box {
+    padding-bottom: 30px !important; } }
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  .ua-box .rule-box {
+    padding-bottom: 30px !important; } }
+.introduce .container {
+  margin: 0 auto;
+  overflow: hidden; }
+  .introduce .container .text-muted {
+    color: #fff;
+    text-align: center;
+    font-size: 0.666667rem;
+    margin-bottom: 40px; }
+  .introduce .container .card-deck {
+    display: flex;
+    flex-direction: column;
+    background: #fff; }
+    .introduce .container .card-deck .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      margin-bottom: 15px; }
+      .introduce .container .card-deck .card .text-muted {
+        color: #6c757d !important; }
+      .introduce .container .card-deck .card .card-body {
+        flex: 1 1 auto;
+        width: 8.4rem;
+        margin: 0.8rem; }
+        .introduce .container .card-deck .card .card-body .bd-text-purple-bright {
+          color: #3dcdca;
+          text-align: center;
+          font-weight: 500;
+          height: 5rem; }
+          .introduce .container .card-deck .card .card-body .bd-text-purple-bright .text-title {
+            font-size: 0.5rem;
+            font-family: unset; }
+        .introduce .container .card-deck .card .card-body .text-desc {
+          font-size: 0.426667rem;
+          line-height: 0.56rem;
+          font-family: unset; }
+        .introduce .container .card-deck .card .card-body .card-subtitle,
+        .introduce .container .card-deck .card .card-body .card-text:last-child {
+          margin-bottom: 0; }
+@charset "UTF-8";
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); }
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2); }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  animation-delay: 0;
+  -webkit-animation-delay: 0;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  /* Safari 和 Chrome */ }
+
+#firstscreen {
+  width: 100%;
+  height: 110%;
+  overflow: hidden;
+  position: relative; }
+  #firstscreen .logo {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 150px; }
+  #firstscreen .name {
+    height: 110px;
+    line-height: 110px;
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px; }
+  #firstscreen .page-home-desc {
+    color: #3dcdca;
+    font-size: 32px;
+    height: 126px;
+    line-height: 42px;
+    margin: 0 60px;
+    text-align: center;
+    font-family: unset; }
+  #firstscreen .btn {
+    margin: 0 60px;
+    list-style: none;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 75px; }
+    #firstscreen .btn li {
+      width: 270px;
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+      font-size: 36px;
+      color: #3dcdca;
+      border: 2PX solid #3dcdca;
+      border-radius: 10px; }
+    #firstscreen .btn .go_study_btn {
+      background: #3dcdca;
+      color: #fff; }
+  #firstscreen .email {
+    color: #6190E8;
+    text-decoration: none; }
+  #firstscreen .bottom {
+    margin: 0 0.8rem;
+    width: 8.4rem;
+    height: 2.4rem;
+    padding-top: 0.3rem;
+    background-color: #3dcdca;
+    position: absolute;
+    bottom: 12%;
+    border-radius: 8px; }
+    #firstscreen .bottom div {
+      font-size: 24px;
+      padding-left: 20px;
+      line-height: 50px;
+      color: #fff; }
+.recommend li:nth-of-type(2n-1) {
+  margin-left: 0; }
+
+.recommend {
+  display: flex;
+  justify-content: space-between; }
+
+.title {
+  height: 100px;
+  line-height: 100px;
+  font-size: 0.666667rem;
+  text-align: center;
+  color: #fff; }
+
+.recommend li {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 0 0.146667rem 0.146667rem;
+  width: 4.666667rem;
+  height: 7.6rem;
+  border-radius: 0.12rem;
+  overflow: hidden;
+  background-color: #fff; }
+
+.img-box {
+  position: relative;
+  width: 100%;
+  height: 5.093333rem;
+  background-color: #fff; }
+  .img-box img {
+    margin: 0.16rem auto 0;
+    width: 4.72rem;
+    height: 4.72rem; }
+
+.name-box {
+  font-size: 0.32rem;
+  font-weight: bold;
+  margin-top: 0.32rem;
+  padding: 0 0.186667rem;
+  width: 4.133333rem;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #3b2002;
+  line-height: 1; }
+
+.price-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 0;
+  line-height: 0.373333rem;
+  margin-top: 0.213333rem;
+  padding: 0 0.186667rem;
+  width: 4.133333rem;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #3b2002;
+  line-height: 1; }
+  .price-box span {
+    font-size: 0.4rem;
+    line-height: 0.373333rem;
+    color: #ff2042; }

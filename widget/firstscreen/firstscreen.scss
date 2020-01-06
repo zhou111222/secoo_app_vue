@@ -1,0 +1,113 @@
+@-webkit-keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    animation-delay: 0;
+    -webkit-animation-delay: 0;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    /* Safari 和 Chrome */
+}
+
+#firstscreen {
+    width: 100%;
+    height: 110%;
+    overflow: hidden;
+    position: relative;
+    .logo {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+        margin-top: 150px;
+    }
+    .name {
+        height: 110px;
+        line-height: 110px;
+        color: #fff;
+        text-align: center;
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+    .page-home-desc {
+        color: #3dcdca;
+        font-size: 32px;
+        height: 126px;
+        line-height: 42px;
+        margin: 0 60px;
+        text-align: center;
+        font-family: unset;
+    }
+    .btn {
+        margin: 0 60px;
+        list-style: none;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 75px;
+        li {
+            width: 270px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            font-size: 36px;
+            color: #3dcdca;
+            border: 2PX solid #3dcdca;
+            border-radius: 10px;
+        }
+        .go_study_btn {
+            background: #3dcdca;
+            color: #fff;
+        }
+    }
+    .email {
+        color: #6190E8;
+        text-decoration: none;
+    }
+    .bottom {
+        margin: 0 0.8rem;
+        width: 8.4rem;
+        height: 2.4rem;
+        padding-top: 0.3rem;
+        background-color: #3dcdca;
+        position: absolute;
+        bottom: 12%;
+        border-radius: 8px;
+        div {
+            font-size: 24px;
+            padding-left: 20px;
+            line-height: 50px;
+            color: #fff;
+        }
+    }
+}

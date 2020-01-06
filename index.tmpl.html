@@ -1,0 +1,63 @@
+<!--<#assign chkfileExits= "com.secoo.foms.utils.FreemarkerExtendChkFileFunction"?new()>-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <!-- 手动更改 -->
+    <title>Neves</title>
+    <!-- 公共样式不可删除 -->
+    <link rel="stylesheet" href="//mstatic.secooimg.com/activity2018/all_min/css/activity2018.min.css">
+    <!--添加听云监控-->
+    <script type="text/javascript" src="//mstatic.secooimg.com/js/tingyun-rum.js"></script>
+    <!-- vue.js -->
+    <script type="text/javascript" src="https://mstatic.secooimg.com/js/vue_2.6.10.js"></script>
+</head>
+
+<!-- uuid为页面在erp中的id，仅在erp后台生成的链接中生效，做数据统计用 -->
+<!--#config timefmt="%Y/%m/%d %H:%M:%S" -->
+
+<body uuid="page_app_${sectionid?c}" class="eventParent">
+    <div id="app">
+        <!-- firstscreen -->
+        <firstscreen name="firstscreen" class="observe" state="observeing" id="firstscreen" :message="message"></firstscreen>
+        <!-- firstscreen -->
+        <introduce name="introduce" class="observe" state="observeing" id="introduce"></introduce>
+        <!-- floor -->
+        <floor name="floor" class="observe" state="observeing" id="floor" data='{"pro_1":"28095"}'></floor>
+    </div>
+    <div id="template"></div>
+    <!-- 页面配置参数 -->
+    <script type="text/javascript">
+        var pageConfig = {
+
+            //是否开启移动端调试工具，默认false
+            openDebug: false,
+
+            //是否加载神策数据统计sdk，默认为true
+            useSensors: true,
+
+            //是否在控制台输出神策埋点结果，便于测试埋点成功与否，默认为false
+            showSensorsLog: false,
+
+            //是否在控制台输出自有埋点参数
+            showStatisticsData: false,
+
+            //是否在控制台输出跳转所需参数（包含跳转数据、埋点数据），为了便于查看输出结果，设置此参数后页面会不能跳转，默认为false
+            showGoPageLog: false,
+
+            //是否初始化下载条，默认为true，该属性与当前页链接中包含fromShare=1参数同时存在时，该配置项拥有更高的优先级
+            initLoad: true,
+
+            //是否初始化头部导航栏，默认true，只在m站生效 
+            initHead: false,
+            //设置分享参数，m站、app中均生效，比标签配置分享参数拥有更高优先级，不配置此参数则抓取分享标签中的参数设置，如分享标签也未设置分享参数，则取默认分享参数，分享链接为当前链接，此为展示demo
+        }
+    </script>
+    <!-- 主文件不可删除 -->
+    <script type="text/javascript" src="//mstatic.secooimg.com/activity2019/js/activity2019.min.js"></script>
+</body>
+
+</html>

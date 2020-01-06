@@ -1,0 +1,34 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body,
+#app {
+    width: 100%;
+    height: 100%;
+    background-color: #212529;
+}
+
+.newUserTopBarWrapper {
+    display: none;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .ua-box .rule-box {
+        padding-bottom: 30px !important;
+    }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio:3) {
+    .ua-box .rule-box {
+        padding-bottom: 30px !important;
+    }
+}
+
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio:2) {
+    .ua-box .rule-box {
+        padding-bottom: 30px !important;
+    }
+}
