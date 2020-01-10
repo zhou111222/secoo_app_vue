@@ -1,4 +1,4 @@
-![neves.png](https://raw.githubusercontent.com/zhou111222/images/master/neves.png)
+![neves.png](https://github.com/zhou111222/images/blob/master/neves.png)
 # 项目开发说明
 ## 技术框架
 1. 前端采用`Vue/ES6、sass`架构，兼容IE8+
@@ -8,7 +8,7 @@
 6. 项目已集成 `webpack-spritesmith` `postcss-px2rem` `page-skeleton-webpack-plugin,zepto`等插件或类库，详情请查看webpack.config.js
 
 ## 项目原理和结构
-![项目原理和结构.jpg](https://raw.githubusercontent.com/zhou111222/images/master/%E9%A1%B9%E7%9B%AE%E5%8E%9F%E7%90%86%E5%92%8C%E7%BB%93%E6%9E%84.jpg)
+![项目原理和结构.jpg](https://github.com/zhou111222/images/blob/master/%E9%A1%B9%E7%9B%AE%E5%8E%9F%E7%90%86%E5%92%8C%E7%BB%93%E6%9E%84.jpg)
 
 
 ## 目录结构及说明
