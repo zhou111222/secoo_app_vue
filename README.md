@@ -1,167 +1,175 @@
+![neves.png](https://upload-images.jianshu.io/upload_images/18616547-5e8e093dae6a42a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 # 项目开发说明
 ## 技术框架
-1. 前端采用`Typescript/ES6、sass`架构，兼容IE8+
-2. Neves脚手架采用`node + express + Webpack 4.0`。node完成脚手架基本的开发，express完成server端mock数据接口的开发
+1. 前端采用`Vue/ES6、sass`架构，兼容IE8+
+2. Neves脚手架采用`node + express + Webpack 4.0`。node完成脚手架基本的开发，express完成server端mock数据接口的开发.Webpack负责模块打包和项目优化。
 3. 项目样式支持Sass,css
 5. 异步请求使用`axios`，并在`api/server.js`中做了拦截器封装
 6. 项目已集成 `webpack-spritesmith` `postcss-px2rem` `page-skeleton-webpack-plugin,zepto`等插件或类库，详情请查看webpack.config.js
 
-## hybrid多页面项目及模块
-1. 因为是内嵌页，不使用vue-router实现路由,所有的页面都采用直出的形式
-2. 每个页面有自己的components,另外整个项目有自己公共的components供其他页面使用
+## 项目原理和结构
+![项目原理和结构.jpg](https://upload-images.jianshu.io/upload_images/18616547-a08dfb2a9b0f82b3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-## M端h5页面单页面项目及模块
-1. m端h5页面以及嵌套使用vue-router,首页采用直出的形式，其他页面按需加载
-2. 每个页面有自己的components,另外整个项目有自己公共的components供其他页面使用
-
-## express,nginx，PM2使用
-使用方法请参照'https://blog.csdn.net/u012757419/article/details/99451635'
-
-## webpack-spritesmith
-> 为了优化图标加载，项目使用`webpack-spritesmith`自动合并图标为sprite
-
-### 使用方法
-1. 安装`webpack-spritesmith`执行`npm install webpack-spritesmith --save`
-2. 开发时将切图（1倍）放置`src/common/images/icon`目录，扩展名为**png**
-3. 图标DOM的class以`icon-xxx`命名，xxx为图片名
-4. 构建脚本会将icon下所有图片合并到一张sprite图上，并根据图片大小和定位，自动生成css代码
-
-```
-// 例如 images/icon/icon1.png,则页面dom为 <a class="icon-icon1"></a>
-// 自动生成的css为
-.icon { background-image: url(../images/sprite.png);background-size: 404px 266px;}
-.icon-icon1 { width: 128px; height: 128px; background-position: 0px 0px; }
-
-```
-使用方法请参照'https://www.cnblogs.com/guangixn/p/10682131.html'
-
-## postcss-px2rem
-> vue项目利用postcss-px2rem适配不同屏幕,开发者无需关心px和rem的换算，只要在将px转换成rem
-
-### 使用方法
-1. 安装`postcss-px2rem`执行`npm install postcss-px2rem --save`
-2. 开发过程中直接按照设计师给的设计稿的实际px写css即可。postcss-px2rem会自动转换
-3. 在每个页面的index.html中插入一段脚本，脚本功能为根据dpr给html一个fongt-size值。
-
-详情请参考'https://www.jianshu.com/p/8cb5fdce58bb'
-
-## page-skeleton-webpack-plugin
-> vue项目利用page-skeleton-webpack-plugin为页面生成骨架屏，由于vue-cli3脚手架创建的项目会压缩html干掉<!-- shell -->导致骨架屏不生效，所以生成的骨架屏需要npm run serve生成骨架屏代码，然后手动到shell文件夹下复制相应的骨架屏代码放到页面的模板里面。html部分覆盖掉模板html部分，style部分放到head里面
-详情请参考'https://segmentfault.com/a/1190000020416483?utm_source=tag-newest'
-
-## 异步请求guifan
-1. 使用axios、async、await开发
-
-### get和post请求接口
-```
-import request from "../common/script/utils/request";
-
-/*
- * @Description: GET请求
- */
-export function getHotProduct(params:any) {
-  return request({
-      url: "/market/prod/hot",
-      method: "get",
-      headers: {
-          'Content-Type': 'application/json;charset=UTF-8'
-      },
-      params
-  });
-}
-/*
- * @Description: POST请求
- */
-export function orderConfirm(params:any) {
-  return request({
-      url: "/cart/add",
-      method: "post",
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      data: params
-  });
-}
-
-```
-
-### 调用方式 
-
-```
-async getProductList() {
-    try {
-      let params = {}
-      let res = await getHotProduct(params)
-      if (res.data.code === 0) {
-        console.log("初始化商品",res);
-      } else{
-        console.log(res.data.msg);
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-```
 
 ## 目录结构及说明
 
 ```
-|-- node_modules                    // 依赖包
-|-- public                          // 页面模板
-|-- shell                           // 骨架屏页面代码
-|-- src                             // 源码目录
-|   |-- api                         // 各个页面异步请求的集合
-|   |-- common                      // 页面的公共模块
-|   |   |--font                     // 页面引用的公共字体，icon-fongt
-|   |   |--images                   // 页面的公共图片
-|   |   |   |--icon                 // 存放各个页面的图标，使用webpack-spritesmith拼成一张图
-|   |   |--script                   // 页面引用的公共脚本
-|   |   |   |--utils                // 页面的工具函数
-|   |   |   |   |--request.ts       // 封装的axios请求拦截器
-|   |   |--style                    // 页面引用的公共样式
-|   |-- components                  // vue公共组件
-|   |   | mixins                    // 一部分公共的方法或者计算属性
-|   |-- pages                       // vue页面
-|   |   |--home.vue                 // 首页
-|   |   |   |  |public              // 页面需要的静态资源
-|   |   |   |  |router              // 页面路由
-|   |   |   |  |views               // 子页面
-|   |   |   |  |components          // 子页面组件
-|   |   |   |  |--index.vue         // 子页面入口文件
-|   |   |   |-- App.vue             // hybrid模式根组件
-|   |   |   |-- home.html           // 首页入口文件
-|   |   |   |-- App.ts              // 首页目标浏览器配置表
-|   |   |--About.vue                // 跳转页面
-|   |-- store                       // 公共资源
-|   |-- types                       // 项目中用到的ts接口结合
-|   |   |--moudules                 // 页面各个页面的vuex  
-|   |   |--index.ts                 // 页面各个页面的vuex集合并引入vue
-|   |-- shims-tsx.d.ts              // vue-cli初始化ts项目生成的shims-tsx.d.ts
-|   |-- shims-vue.d.ts              // vue-cli初始化ts项目生成的shims-vue.d.ts
-|   |-- App.vue                     // h5模式根组件
-|   |-- main.ts                     // h5程序入口文件，加载各种公共组件
-|--browserlistrc                    // 目标浏览器配置表
-|-- static                          // 静态文件，比如一些图片，json数据等
-|-- gitignore                       // git上传需要忽略的文件格式
-|-- app.js                          // node服务的脚本
-|-- babelr.config.js                // ES6语法编译配置
+
+|-- api                             // 页面异步请求和拦截器
+|   |-- index.js                    // 页面异步请求集合
+|   |-- server.js                   // 页面异步请求axios拦截器封装
+|--bin                              // 脚手架主要功能node代码
+|   |-- create.js                   // 创建组件脚本
+|   |-- untils.js                   // 脚手架公共方法封装
+|   |-- upload.js                   // 打包后代码上传到erp的脚本
+|   |-- watch.js                    // 检测代码改变和浏览器热更新脚本
+|-- dist                            // 打包后的代码集合
+|   |--css                          // 页面的样式集合
+|   |   |--sprite.css               // 页面对应的css sprite样式
+|   |   |--styles.css               // 页面对应的各个楼层的样式
+|   |-- js                          // 页面脚本集合
+|   |   |--main.js                  //打包生成的页面脚本
+|   |-- sprites                     // webpack生成的css sprite图片
+|   |-- index.html                  // 最终打包生成的需要上传到erp的html文件
+|-- node_modules                    // 项目依赖包
+|-- public                          // 页面需要的静态资源
+|-- server                          // 本地服务mock数据
+|-- template                        // 板块模板规范
+|-- widget                          // 项目中的组件集合
+|   |-- floor                       // 其中一个组件
+|   |   |-- floor.html              // 组件html
+|   |   |-- floor.js                // 组件js脚本
+|   |   |-- floor.scss              // 组件scss样式
+|-- build.js                        // 构建页面node脚本
+|-- index.tmpl.html                 // 页面的html模板
+|-- main.js                         // 程序入口文件，加载各个组件
 |-- package-lock.json               // 锁定安装时的包的版本号
 |-- package.json                    // 项目基本信息
-|-- postcss.config.js               // postcss-pxtorem插件配置
 |-- README.md                       // 项目说明
-|-- tsconfig.json                   // 指定了用来编译ts项目的根文件和编译选项
-|-- tslint.json                     // ts书写规范
-|-- vue.config.js                   // webpack基本常用配置
+|-- user-config.json                   // erp新建页面参数配置
+|-- webpack.config.js                   // webpack基本常用配置
+
 ```
+## 主要功能讲解
+执行`npm ren  start`命令页面准确打开之后。可以进行项目的开发，h5活动页、app内嵌页的初始化、配置、调native方法等。可以在`index.tmpl.html`文件中配置。配置方式和之前保持统一。详细的请参考[h5活动页、app内嵌页开发说明](http://gitlab.secoo.com:8090/H5/h5_arsenal/h5_arsenal)。页面配置完成之后。完成主要功能可以参考如下：
+
+#####新建楼层
+执行`npm run create`之后输入楼层名称，**如果是vue的开发环境。楼层名称全部小写**。Neves自动生成一个楼层。楼层格式已包含在文件中。**不要随意删除楼层外壳的类名。可以在现有类名的基础上添加类名**
+#####楼层引入页面规范
+一个楼层新建完成之后，需要在2个文件中引入：
+（1）`index.tmpl.html`，这个文件声明楼层。es6环境和 vue环境的引入基本一致，不同的是es6环境楼层由div标签包裹，vue环境由组件名包裹。例如：
+```
+### es6环境
+<div name="floor" class="observe" state="observeing" id="floor" data='{"pro_1":"28095"}'></div>
+
+### vue环境
+<floor name="floor" class="observe" state="observeing" id="floor" data='{"pro_1":"28095"}'></floor>
+```
+楼层属性的属性可参考：
+属性 | 是否必填 |  意义  
+-|-|-
+name |是 | 楼层名称,需要和创建时填的的一致 |
+class | 否 | 类名为observe时楼层懒加载，不需要懒加载可不填|
+state | 否 | 懒加载的状态， 不需要懒加载可不填|
+id | 是 | 楼层id，需要页面唯一 |
+data | 否 | 楼层需要的数据，比如板块的id |
+
+(2)`main.js`这个文件引入楼层的css和js，并在jsLoaded函数中执行楼层对应的函数，例如：
+```
+//css部分
+import './public/css/common.scss';
+import './widget/firstScreen/firstScreen.scss';
+import './widget/introduce/introduce.scss';
+import './widget/floor/floor.scss';
+// js部分
+import store from './public/js/global';
+const _$store = new store();
+//楼层js部分
+
+import { firstScreen } from './widget/firstScreen/firstScreen';
+import { introduce } from './widget/introduce/introduce';
+import { floor } from './widget/floor/floor';
+
+function jsLoaded() {
+    $(function() {
+        _$store.initstate();
+        //页面主逻辑
+       firstScreen();
+       ntroduce();
+       floor();
+    });
+}
+
+jsLoaded();
+```
+#####楼层懒加载规范
+es6环境要在main.js中操作
+第一步：引入pageObserver函数：
+```
+import { pageObserve } from './public/js/observe';
+```
+第一步：引入需要加懒加载的楼层函数：
+```
+import { firstScreen } from './widget/firstScreen/firstScreen';
+import { introduce } from './widget/introduce/introduce';
+import { floor } from './widget/floor/floor';
+```
+第三步： 在jsLoaded中执行pageObserve函数，参数为需要加懒加载的楼层函数的名称
+
+```
+pageObserve({ firstScreen, introduce, floor });
+```
+#####楼层绑定板块规范
+有时候需要在楼层中绑定模板。比如图文模板或者商品模板。
+第一步：在erp上新建板块，将之前的楼层html替换掉对应的字段后，复制到相应的位置。保存。生成板块编码。
+第二步：在项目的`index.tmpl.html`文件中找到对应楼层为楼层绑定板块编码。例如：
+```
+//一般商品板块建议属性名称为pro_1、pro_2。图片板块属性名称为pic_1、pic_2
+<floor name="floor" class="observe" state="observeing" id="floor" data='{"pro_1":"28095"}'></floor>
+```
+第三步：在楼层的html代码中，找到包裹板块的标签，添加两个属性：class="template"；template_tpl="板块名称，和第二步的名称一致"，例如：
+```
+<ul class="template recommend clearfix bindEventList" template_tpl="pro_1">
+
+```
+#####图标的使用规范
+h5页面开发中，有一种优化叫做css sprites,但是在操作过程中很复杂，需要手动拼图，并且计算出每个图标的坐标和大小。Neves在此做了大量优化，用户无需关心拼图和计算图标的坐标、大小。在使用图标时
+第一步：将需要的图标复制到public/icons文件夹,假如icon名称为btn.png
+第二步：给需要加图标的标签增加2个class:例如：
+```
+<i class="icon icon-btn"></i>
+```
+#####mock数据使用规范
+在开发项目的过程中，有些楼层需要请求数据接口，传统的开发模式是前后端分离，后端首先提供接口的数据结构和字段。前端造假数据开发。有些开发会使用一些mock数据平台或者mock.js之类的库。使用起来都比较麻烦。在这里，使用neves非常简单可以制造mock数据。
+
+第一步：进入文件夹，打开终端命令行工具，实行`npm install`安装依赖包
+第二步：进入serve/api文件夹，新建一个js文件，文件名即为接口名称
+第三步：按照示例details.js,规定要返回的文件结构，字段等，制造mock数据。
+第四步：修改serve/bin/www文件的端口号和项目端口号一致。并执行`npm start`
+
+- mock数据完成，接口地址为：[http://localhost:5505/api/info](http://localhost:5505/api/info)
+- '5505'为第四步填写的端口号，也就是本地项目的端口号，'info'为第二步创建的文件名称
+#####px转rem
+h5页面样式无需关注px转rem。开发过程中直接根据设计稿填px即可。Neves会自动转换为rem。默认按页面宽度分为10份，每一份为75px进行转换。假如设计稿给的宽度不是750，可以在build.js中修改。例如：
+```
+var cssData = postcss().use(px2rem({ remUnit: 75 })).process(originCssText + spriteCssText).css;
+```
+#####页面打包上传
+项目开发完需要打包上传到erp上进行测试。也很简单：
+第一步：执行`npm run build`将项目打包
+第二步：执行`npm run upload`将打包后的页面上传到erp
+>  需要特别注意的：
+(1)项目打包之后需要将生成的css sprite图片上传到服务器。图片在dist/sprites/sprites.png。将生成的链接替换掉`webpack.config.js`中的spriteBaseUrl字段。
+ (2)切换环境的时候千万不要忘记修改`user-config.js`中的pageId字段。替换为新环境中创建的页面id,不然会导致页面上传失败。
+ (3)本地预览测试默认使用的是localhost:3000/index.html。会导致cdn上的activity_2019库和vue.js库无法加载，需要将localhost换成127.0.0.1
 
 ## 常用命令
 1. `npm run start` 开发时使用，将启动本地服务
 2. `npm run build` 构建项目，用于生产环境代码打包
 3. `npm run create` 开发时使用，用于新建楼层
-4. `npm run upload` 构建项目，用于将代码部署到erp上
+4. `npm run upload` 构建项目，用于将代码部署到erp上(寺库内部员工可用)
 
 ## 未来规划
-1. 开发与之配套的组件库，工具函数
-2. 项目整体使用express+typescript开发
+1. 开发适合大型项目的Vue脚手架，提高开发效率，规范开发流程
+2. 脚手架至少需要完成Vue-cli所有功能。并且在具备neves脚手架功能的基础上增加(1)可以使用Vue/Vue+Typescript开发。如果选择后者开发，所有的配置项、与其配套的优化措施，npm包需要自己开发(2)和activity_2020的npm包配套使用，让页面体积更小。(3)与之配套的骨架屏npm包(4)一键上传到堡垒机完成部署。
 3. 支持新建板块

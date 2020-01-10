@@ -78,16 +78,24 @@
         li {
             width: 270px;
             height: 70px;
-            line-height: 70px;
-            text-align: center;
-            font-size: 36px;
-            color: #3dcdca;
             border: 2PX solid #3dcdca;
             border-radius: 10px;
+            a {
+                display: block;
+                width: 270px;
+                height: 70px;
+                line-height: 70px;
+                text-align: center;
+                font-size: 36px;
+                color: #3dcdca;
+                text-decoration: none;
+            }
         }
         .go_study_btn {
             background: #3dcdca;
-            color: #fff;
+            a {
+                color: #fff;
+            }
         }
     }
     .email {

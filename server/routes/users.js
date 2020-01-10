@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var data = {
-    'code': '000',
-    'message': 'message消息',
+    'code': '0',
+    'message': 'success',
     'lists': [{
         'naem': '小马',
         'age': '12',

@@ -1,5 +1,5 @@
-// api/query.js
-
+// api/details.js
+// 接口地址：http://localhost:5505/api/details
 var teamData1 = {
     detailList: [{
         devoteWishValue: 1000,

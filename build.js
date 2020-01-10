@@ -14,6 +14,7 @@ const Progress = require('./bin/untils.js').Progress;
 const logSuccess = require('./bin/untils.js').logSuccess;
 const logTips = require('./bin/untils.js').logTips;
 const logName = require('./bin/untils.js').logName;
+const logGrid = require('./bin/untils.js').logGrid;
 const escape2Html = require('./bin/untils.js').escape2Html;
 const template = fs.readFileSync(path.join(__dirname, '/template/widget/widget.html'), 'utf-8');
 
@@ -63,6 +64,9 @@ function spliteHtml() {
                     console.log("");
                     console.log("");
                     Progress('渲染进度：', '渲染完成：', 100);
+                    if (process.env.NODE_ENV != 'development') {
+                        logGrid();
+                    }
                 }
             }
         }

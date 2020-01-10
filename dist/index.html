@@ -200,16 +200,26 @@ body,
 #firstscreen .btn li {
   width: 3.6rem;
   height: 0.933333rem;
-  line-height: 0.933333rem;
-  text-align: center;
-  font-size: 0.48rem;
-  color: #3dcdca;
   border: 2PX solid #3dcdca;
   border-radius: 0.133333rem;
 }
 
+#firstscreen .btn li a {
+  display: block;
+  width: 3.6rem;
+  height: 0.933333rem;
+  line-height: 0.933333rem;
+  text-align: center;
+  font-size: 0.48rem;
+  color: #3dcdca;
+  text-decoration: none;
+}
+
 #firstscreen .btn .go_study_btn {
   background: #3dcdca;
+}
+
+#firstscreen .btn .go_study_btn a {
   color: #fff;
 }
 
@@ -320,73 +330,19 @@ body,
 .icon {
   display: inline-block;
   background-image: url(./sprites/sprite.png);
-  background-size: 8.213333rem 7.413333rem;
-}
-
-.icon-bonus {
-  width: 0.853333rem;
-  height: 0.826667rem;
-  background-position: 0 -5.613333rem;
-}
-
-.icon-close {
-  width: 0.986667rem;
-  height: 0.986667rem;
-  background-position: -1.413333rem -4.16rem;
+  background-size: 2.693333rem 1.32rem;
 }
 
 .icon-detailed {
   width: 1.28rem;
   height: 1.32rem;
-  background-position: -6.933333rem -1.413333rem;
-}
-
-.icon-end {
-  width: 3.893333rem;
-  height: 1.146667rem;
-  background-position: -4.026667rem -2.88rem;
-}
-
-.icon-invation_little {
-  width: 1.28rem;
-  height: 0.6rem;
-  background-position: -2.533333rem -4.16rem;
-}
-
-.icon-invitation_btn {
-  width: 3.893333rem;
-  height: 1.146667rem;
-  background-position: 0 -2.88rem;
-}
-
-.icon-invitation_title {
-  width: 8.213333rem;
-  height: 1.28rem;
   background-position: 0 0;
 }
 
 .icon-return {
   width: 1.28rem;
   height: 1.32rem;
-  background-position: 0 -4.16rem;
-}
-
-.icon-share_wrap {
-  width: 6.8rem;
-  height: 1.333333rem;
-  background-position: 0 -1.413333rem;
-}
-
-.icon-wishi_little {
-  width: 0.453333rem;
-  height: 0.52rem;
-  background-position: -3.946667rem -4.16rem;
-}
-
-.icon-wishnum {
-  width: 0.8rem;
-  height: 0.84rem;
-  background-position: 0 -6.573333rem;
+  background-position: -1.413333rem 0;
 }</style></head>
 
 <!-- uuid为页面在erp中的id，仅在erp后台生成的链接中生效，做数据统计用 -->
@@ -409,10 +365,14 @@ body,
     <p class="page-home-desc">{{desc}}</p>
     <ul class="btn">
         <li class="git_btn">
-            gitLab
+            <a href="https://github.com/zhou111222/secoo_app_vue">
+            gitHub
+          </a>
         </li>
         <li class="go_study_btn">
-            &#x67E5;&#x770B;&#x6587;&#x6863;
+            <a href="https://www.npmjs.com/package/neves">
+            Npm
+          </a>
         </li>
     </ul>
     <div class="bottom">

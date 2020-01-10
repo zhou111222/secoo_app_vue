@@ -1,12 +1,3 @@
-.icon { display:inline-block; background-image: url(./sprites/sprite.png); background-size:616px 556px; }
-.icon-bonus { width: 64px; height: 62px; background-position: 0px -421px; }
-.icon-close { width: 74px; height: 74px; background-position: -106px -312px; }
-.icon-detailed { width: 96px; height: 99px; background-position: -520px -106px; }
-.icon-end { width: 292px; height: 86px; background-position: -302px -216px; }
-.icon-invation_little { width: 96px; height: 45px; background-position: -190px -312px; }
-.icon-invitation_btn { width: 292px; height: 86px; background-position: 0px -216px; }
-.icon-invitation_title { width: 616px; height: 96px; background-position: 0px 0px; }
-.icon-return { width: 96px; height: 99px; background-position: 0px -312px; }
-.icon-share_wrap { width: 510px; height: 100px; background-position: 0px -106px; }
-.icon-wishi_little { width: 34px; height: 39px; background-position: -296px -312px; }
-.icon-wishnum { width: 60px; height: 63px; background-position: 0px -493px; }
+.icon { display:inline-block; background-image: url(./sprites/sprite.png); background-size:202px 99px; }
+.icon-detailed { width: 96px; height: 99px; background-position: 0px 0px; }
+.icon-return { width: 96px; height: 99px; background-position: -106px 0px; }

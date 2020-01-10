@@ -134,15 +134,21 @@ body,
     #firstscreen .btn li {
       width: 270px;
       height: 70px;
-      line-height: 70px;
-      text-align: center;
-      font-size: 36px;
-      color: #3dcdca;
       border: 2PX solid #3dcdca;
       border-radius: 10px; }
+      #firstscreen .btn li a {
+        display: block;
+        width: 270px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 36px;
+        color: #3dcdca;
+        text-decoration: none; }
     #firstscreen .btn .go_study_btn {
-      background: #3dcdca;
-      color: #fff; }
+      background: #3dcdca; }
+      #firstscreen .btn .go_study_btn a {
+        color: #fff; }
   #firstscreen .email {
     color: #6190E8;
     text-decoration: none; }

@@ -4,7 +4,7 @@ const path = require('path')
 const SpritesmithPlugin = require('webpack-spritesmith');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const uglify = require('uglifyjs-webpack-plugin');
-let spriteBaseUrl = '//pic12.secooimg.com/res/combat/combat/';
+let spriteBaseUrl = '//pic12.secooimg.com/res/combat/combat/sprites.png';
 
 // 封装链接拼接函数
 function resolve(dir) {
@@ -128,7 +128,7 @@ module.exports = {
             },
             // 样式文件中调用雪碧图地址写法
             apiOptions: {
-                cssImageRef: process.env.NODE_ENV === 'development' ? './sprites/sprite.png' : spriteBaseUrl + 'sprite.png'
+                cssImageRef: process.env.NODE_ENV === 'development' ? './sprites/sprite.png' : spriteBaseUrl
             },
             customTemplates: {
                 'function_based_template': templateFunction,
